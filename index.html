@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+        .form-div {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* PADDING PARA EL LOGGIN */
+            padding-top: 10px;
+            padding-bottom: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+
+        }
+
+        form {
+            width: 150%;
+        }
+
+        input {
+            border: 2px solid #6d4aff;
+            background-color: #292733;
+            border-radius: 5px;
+            width: 75%;
+            margin-top: 5px;
+            padding: 5px;
+
+        }
+
+        body {
+            background-color: #1e1d26;
+            color: white;
+            font-family: 'Manrope', sans-serif;
+            white-space: nowrap;    
+
+        }
+
+        .titulo {
+            text-align: center
+        }
+
+        .semititulo {
+            font-size: 14px;
+        }
+
+        .subtitulo {
+            font-size: 14px;
+            color: #6f6f79;
+        }
+
+        #nombre-error{
+            font-size: 14px;
+            color: #a35e65;
+        }
+        #contraseña-error{
+            font-size: 14px;
+            color: #a35e65;
+        }
+        .btn {
+            background-color: #6d4aff;
+            border: none;
+            color: white;
+
+            /*CENTRAR UN BOTON*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+
+
+            border-radius: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            transition: 0.5s;
+        }
+        .btn:hover{
+            background-color: #453d6b;
+        }
+    </style>
+</head>
+
+<body onload="onload()">
+
+
+
+
+
+    <div class="form-div">
+
+        <h2 class="titulo">Iniciar sesion</h2>
+        <span class="subtitulo">Introduce tus datos de cuenta.</span>
+        <br>
+        <br>
+        <form action="#">
+
+            <span class="semititulo">Nombre tu usuario</span>
+            <br>
+            <span id="nombre-error">Falta el usuario</span>
+            <input type="text" name="nombre" id="name_login" placeholder="Tu usuario aqui">
+            <br>
+            <br>
+            <span class="semititulo">Contraseña</span>
+            <br>
+            <span id="contraseña-error">Falta la contraseña</span>
+            <input type="password" name="" id="password_login" placeholder="Tu contraseña aqui">
+        </form>
+        <br>
+        <button onclick="log()" class="btn">Logearse</button>
+
+    </div>
+
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+
+    <script>
+
+        function onload() {
+            document.getElementById("nombre-error").style.display = "none"
+            document.getElementById("contraseña-error").style.display = "none"
+        }
+
+        function log() {
+
+            if (document.getElementById("name_login").value == "") {
+                document.getElementById("nombre-error").style.display = "block"
+            }
+            if (document.getElementById("password_login").value == "") {
+                document.getElementById("contraseña-error").style.display = "block"
+            }
+
+            if (document.getElementById("name_login").value == "admin" && document.getElementById("password_login").value == "admin") {
+                alert("Te has logeado correctamente en el sistema.");
+                window.location.href = "https://google.com";
+            } else {
+                alert("Usuario/Contraseña incorrecta.");
+            }
+        }
+    </script>
+</body>
+
+</html>
